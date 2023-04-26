@@ -29,7 +29,12 @@
     "mongodb": "^4.8.0",
     "nodemailer": "^6.7.8",
     "nodemailer-sendgrid-transport": "^0.2.0",
-    "prettier": "^2.8.8",
-    "stripe": "^10.2.0"
+    "stripe": "^10.2.0",
+    "eslint": "7.2.0",
+    "eslint-config-airbnb-base": "14.2.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.1.2"
   }
 }

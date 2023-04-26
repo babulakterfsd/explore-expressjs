@@ -1,20 +1,20 @@
-var nodemailer = require("nodemailer");
-var sgTransport = require("nodemailer-sendgrid-transport");
+const nodemailer = require("nodemailer");
+const sgTransport = require("nodemailer-sendgrid-transport");
 
-var emailOptions = {
+const emailOptions = {
     auth: {
       api_key: process.env.EMAIL_KEY,
     },
   };
 
-var emailClient = nodemailer.createTransport(sgTransport(emailOptions));
-  
+const emailClient = nodemailer.createTransport(sgTransport(emailOptions));
+
 function shootMail(mailData) {
     const { name, phone, email, subject, message } = mailData;
-    var mail = {
+    const mail = {
       from: "xpawal@gmail.com",
       to: "b.u.mondol@gmail.com",
-      subject: subject,
+      subject,
       text: message,
       html: `
         <div>
@@ -26,7 +26,7 @@ function shootMail(mailData) {
       
       `,
     };
-    emailClient.sendMail(mail, function (err, info) {
+    emailClient.sendMail(mail,  (err, info) => {
       if (err) {
         console.log(err);
       } else {

@@ -1,6 +1,7 @@
 const express = require('express');
+
 const router = express.Router();
-const ObjectId = require("mongodb").ObjectId;
+const {ObjectId} = require("mongodb");
 
 router.route('/')
   .get(async (req, res) => {
@@ -38,11 +39,10 @@ router.route('/')
     res.send('updating user');
   })
 
-
-  //check admin role
+  // check admin role
   router.route('/checkadminrole/:email')
      .get(async (req, res) => {
-      const email = req.params.email;
+      const {email} = req.params;
       // const query = { email: email };
       // const user = await userCollection.findOne(query);
       // let isAdmin = false;
@@ -53,11 +53,10 @@ router.route('/')
       res.send(`Checking admin role for ${email}`);
     })
 
-
-  //update user to admin
+  // update user to admin
   router.route('/updateusertoadmin/:id')
     .put(async (req, res) => {
-        const id = req.params.id;
+        const {id} = req.params;
         // const filter = { _id: ObjectId(id) };
         // const options = { upsert: true };
         // const roleUpdate = {
@@ -74,7 +73,7 @@ router.route('/')
         res.send(`User ${id} has been updated to admin`);
       })
 
-      //get single user details
+      // get single user details
       router.route('/getuserdetails/:email')
         .get(async (req, res) => {
           // const decodedEmail = req?.decoded?.userEmail;
@@ -86,12 +85,11 @@ router.route('/')
           // }
           res.send(`Getting user details`);
         })
-       
 
-      //single user
+      // single user
       router.route('/:email')
       .put(async (req, res) => {
-        const email = req.params.email;
+        const {email} = req.params;
         // const query = { email: email };
         // const user = await userCollection.findOne(query);
         // const options = { upsert: true };
@@ -105,34 +103,17 @@ router.route('/')
         res.send(`User ${email} has been updated`);
       })
 
-      //delete a single user
+      // delete a single user
       router.route('/:id')
       .delete(async (req, res) => {
-        const id = req.params.id;
+        const {id} = req.params;
         // const query = { _id: ObjectId(id) };
         // const result = await reviewCollection.deleteOne(query);
         // res.json(result);
         res.send(`User ${id} has been deleted`);
       })
 
-    
-
 module.exports = router;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     // get user by email filter with query params
     // app.get("/finduserbyemail", async (req, res) => {
