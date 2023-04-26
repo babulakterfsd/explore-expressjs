@@ -1,0 +1,35 @@
+{
+  "name": "tourguru-backend",
+  "version": "1.0.0",
+  "description": "blah blah blah...",
+  "main": "index.js",
+  "engines": {
+    "node": "14.x"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "start-dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/babulakterfsd/tourguru-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/babulakterfsd/tourguru-backend/issues"
+  },
+  "homepage": "https://github.com/babulakterfsd/tourguru-backend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.8.0",
+    "nodemailer": "^6.7.8",
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "prettier": "^2.8.8",
+    "stripe": "^10.2.0"
+  }
+}
