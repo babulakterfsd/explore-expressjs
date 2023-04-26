@@ -1,7 +1,6 @@
 const dbConnect = require('./utils/dbConnect')
 const express = require("express");
 const verifyJWT = require("./middlewares/verifyJWT");
-const ObjectId = require("mongodb").ObjectId;
 const cors = require("cors");
 const mailRoute = require('./routes/v1/mail.route');
 const usersRoute = require('./routes/v1/users.route');

@@ -2,7 +2,6 @@ const jwt = require("jsonwebtoken");
 
 const verifyJWT = (req, res, next) => {
     const authHeader = req?.headers?.authorization;
-    console.log('hitting to get all users');
     if (!authHeader) {
       console.log('auth not found ');
       return res.status(401).send({ message: "Unauthorized Access" });
