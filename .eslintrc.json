@@ -29,7 +29,17 @@
     "consistent-return": "off",
     "require-yield": "warn",
     "vars-on-top": "warn",
-    "wrap-iife": "warn"
+    "wrap-iife": "warn",
+    "prettier/prettier": [
+      "error",
+      {
+        "trailingComma": "es5",
+        "singleQuote": true,
+        "printWidth": 100,
+        "tabWidth": 1,
+        "semi": true
+      }
+    ]
   },
   "plugins": ["prettier"]
 }
