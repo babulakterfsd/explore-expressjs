@@ -28,28 +28,28 @@ app.use('/api/v1/orders', orderRoute);
 app.use('/api/v1/reviews', reviewRoute);
 
 async function run() {
- try {
-  const database = await dbConnect();
-  const packageCollection = database.collection('tourpackages');
-  const orderCollection = database.collection('orders');
-  const reviewCollection = database.collection('reviews');
-  const userCollection = database.collection('users');
+    try {
+        const database = await dbConnect();
+        const packageCollection = database.collection('tourpackages');
+        const orderCollection = database.collection('orders');
+        const reviewCollection = database.collection('reviews');
+        const userCollection = database.collection('users');
 
-  console.log('connected to tourguru database');
- } finally {
-  //   await client.close()
- }
+        console.log('connected to tourguru database');
+    } finally {
+        //   await client.close()
+    }
 }
 run().catch(console.dir);
 
 app.get('/', (req, res) => {
- res.send('Running tourguru Server...');
+    res.send('Running tourguru Server...');
 });
 
 app.all('*', (req, res) => {
- res.status(404).send('404! Not Found!!');
+    res.status(404).send('404! Not Found!!');
 });
 
 app.listen(port, () => {
- console.log('Listening to tourguru server on', port);
+    console.log('Listening to tourguru server on', port);
 });

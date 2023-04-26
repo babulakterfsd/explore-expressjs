@@ -29,6 +29,7 @@
     "consistent-return": "off",
     "require-yield": "warn",
     "vars-on-top": "warn",
+    "no-tabs": "warn",
     "wrap-iife": "warn",
     "prettier/prettier": [
       "error",
@@ -36,8 +37,9 @@
         "trailingComma": "es5",
         "singleQuote": true,
         "printWidth": 100,
-        "tabWidth": 1,
-        "semi": true
+        "tabWidth": 4,
+        "semi": true,
+        "endOfLine": "auto"
       }
     ]
   },
