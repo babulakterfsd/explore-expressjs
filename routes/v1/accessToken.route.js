@@ -1,15 +1,14 @@
 const express = require('express');
+const { getAccessToken } = require('../../controllers/accessToken.controller');
 
 const router = express.Router();
-const jwt = require('jsonwebtoken');
 
-router.route('/').post((req, res) => {
-    console.log(req.body);
-    const userEmail = req.body;
-    const accessToken = jwt.sign(userEmail, process.env.ACCESS_TOKEN_SECRET, {
-        expiresIn: '1d',
-    });
-    res.send({ accessToken });
-});
+/*
+ * @api {post} /getaccesstoken ---> get access token
+ * @apiDescription Get access token
+ * @apiPermission every one
+ * @apiSuccess {string} access_token  access token
+ */
+router.route('/').post(getAccessToken);
 
 module.exports = router;
