@@ -1,4 +1,4 @@
-const { ObjectId } = require('mongodb').ObjectId;
+const { ObjectId } = require('mongodb');
 
 module.exports.getAllReviews = async (req, res) => {
     // const cursor = reviewCollection.find({});
