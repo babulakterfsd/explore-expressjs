@@ -18,7 +18,7 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 app.use('/api/v1/getaccesstoken', accessTokenRoute);
-app.use(verifyJWT);
+// app.use(verifyJWT);
 app.use('/api/v1/sendemail', mailRoute);
 app.use('/api/v1/users', usersRoute);
 app.use('/api/v1/create-payment-intent', paymentIntentRoute);
