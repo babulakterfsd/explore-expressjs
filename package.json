@@ -24,17 +24,19 @@
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
-    "express": "^4.18.2",
-    "jsonwebtoken": "^8.5.1",
-    "mongodb": "^4.8.0",
-    "nodemailer": "^6.7.8",
-    "nodemailer-sendgrid-transport": "^0.2.0",
-    "stripe": "^10.2.0",
+    "ejs": "^3.1.9",
     "eslint": "7.2.0",
     "eslint-config-airbnb-base": "14.2.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-import": "^2.21.2",
     "eslint-plugin-prettier": "^3.1.4",
-    "prettier": "^2.1.2"
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.7.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.8.0",
+    "nodemailer": "^6.7.8",
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "prettier": "^2.1.2",
+    "stripe": "^10.2.0"
   }
 }
