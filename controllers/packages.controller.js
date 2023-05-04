@@ -56,6 +56,9 @@ module.exports.getASinglePackage = async (req, res, next) => {
         }
         const query = { _id: ObjectId(packageid) };
         const pack = await packageCollection.findOne(query);
+        if (!pack) {
+            return res.status(404).json({ error: 'Package not found' });
+        }
         res.send(pack);
     } catch (error) {
         // res.status(500).json({ error: 'Something went wrong' });
