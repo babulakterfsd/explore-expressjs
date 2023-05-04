@@ -1,7 +1,9 @@
 const { ObjectId } = require('mongodb');
 const connectDB = require('../utils/dbConnect');
 
-module.exports.getAllPackages = async (req, res) => {
+/* we can say every controller is a middleware. It also gets the next parameter */
+
+module.exports.getAllPackages = async (req, res, next) => {
     try {
         const database = await connectDB();
         const packageCollection = database.collection('tourpackages');
@@ -26,11 +28,12 @@ module.exports.getAllPackages = async (req, res) => {
         }
         res.json(result);
     } catch (error) {
-        res.status(500).json({ error: 'Something went wrong' });
+        // res.status(500).json({ error: 'Something went wrong' });
+        next(error); // This will be caught by the error handler middleware, this process is followed in production level code
     }
 };
 
-module.exports.addANewPackage = async (req, res) => {
+module.exports.addANewPackage = async (req, res, next) => {
     try {
         const database = await connectDB();
         const packageCollection = database.collection('tourpackages');
@@ -38,32 +41,42 @@ module.exports.addANewPackage = async (req, res) => {
         const result = await packageCollection.insertOne(newPackage);
         res.json(newPackage);
     } catch (error) {
-        res.status(500).json({ error: 'Something went wrong' });
+        // res.status(500).json({ error: 'Something went wrong' });
+        next(error); // This will be caught by the error handler middleware, this process is followed in production level code
     }
 };
 
-module.exports.getASinglePackage = async (req, res) => {
+module.exports.getASinglePackage = async (req, res, next) => {
     try {
         const database = await connectDB();
         const packageCollection = database.collection('tourpackages');
         const { packageid } = req.params;
+        if (!ObjectId.isValid(packageid)) {
+            return res.status(400).json({ error: 'Invalid package id' });
+        }
         const query = { _id: ObjectId(packageid) };
         const pack = await packageCollection.findOne(query);
         res.send(pack);
     } catch (error) {
-        res.status(500).json({ error: 'Something went wrong' });
+        // res.status(500).json({ error: 'Something went wrong' });
+        next(error); // This will be caught by the error handler middleware, this process is followed in production level code
     }
 };
 
-module.exports.deleteAPackage = async (req, res) => {
+module.exports.deleteAPackage = async (req, res, next) => {
     try {
         const database = await connectDB();
         const packageCollection = database.collection('tourpackages');
         const id = req.params.packageid;
+
+        if (!ObjectId.isValid(id)) {
+            return res.status(400).json({ error: 'Invalid package id' });
+        }
         const query = { _id: ObjectId(id) };
         const result = await packageCollection.deleteOne(query);
         res.json(result);
     } catch (error) {
-        res.status(500).json({ error: 'Something went wrong' });
+        // res.status(500).json({ error: 'Something went wrong' });
+        next(error); // This will be caught by the error handler middleware, this process is followed in production level code
     }
 };
