@@ -45,7 +45,7 @@ app.use('/api/v1/orders', orderRoute);
 app.use('/api/v1/reviews', reviewRoute);
 
 app.get('/', (req, res) => {
-    res.send('Running tourguru Server...');
+    res.send('Running tourguru Server...')
 });
 
 /*
